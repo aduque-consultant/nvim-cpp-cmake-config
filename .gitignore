@@ -1,0 +1,6 @@
+.lazy/
+plugin/packer_compiled.lua
+shada/
+swap/
+backup/
+undo/
