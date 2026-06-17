@@ -4,7 +4,55 @@ return {
     event = "BufWritePre",
     opts = require "configs.conform",
   },
+{
+    "mrcjkb/rustaceanvim",
+    version = "^6",
+    ft = { "rust" },
 
+    init = function()
+      vim.g.rustaceanvim = {
+        server = {
+          default_settings = {
+            ["rust-analyzer"] = {
+              cargo = {
+                allFeatures = true,
+              },
+              check = {
+                command = "clippy",
+              },
+            },
+          },
+        }
+      }
+    end,
+
+    keys = {
+      {
+        "<leader>rr",
+        "<cmd>RustLsp runnables<CR>",
+        desc = "Rust runnables",
+        ft = "rust",
+      },
+      {
+        "<leader>re",
+        "<cmd>RustLsp explainError<CR>",
+        desc = "Rust explain error",
+        ft = "rust",
+      },
+      {
+        "<leader>rm",
+        "<cmd>RustLsp expandMacro<CR>",
+        desc = "Rust expand macro",
+        ft = "rust",
+      },
+      {
+        "<leader>rc",
+        "<cmd>RustLsp openCargo<CR>",
+        desc = "Rust open Cargo.toml",
+        ft = "rust",
+      },
+    },
+  },
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
